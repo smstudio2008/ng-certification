@@ -1,0 +1,8 @@
+.element {
+    background-image: url(http://localhost:4200/park.svg);
+    background-repeat: no-repeat;
+    min-height: 88%;
+    background-position: bottom;
+    background-position-x: left;
+    background-size: auto;
+  }
