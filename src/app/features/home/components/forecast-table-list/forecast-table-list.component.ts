@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-forecast-table-list',
+  selector: 'forecast-table-list',
   templateUrl: './forecast-table-list.component.html',
   styleUrls: ['./forecast-table-list.component.css']
 })

@@ -1,7 +1,8 @@
 .element {
-    background-image: url(../../../../assets/weather.svg);
+    background-image: url(../../../../assets/walk.svg);
     background-repeat: no-repeat;
     min-height: 100%;
     background-position: bottom;
     background-position-x: right;
+    background-size: auto;
   }
