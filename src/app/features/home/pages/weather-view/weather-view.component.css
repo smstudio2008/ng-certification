@@ -1,0 +1,13 @@
+
+
+
+.weather__search{
+    padding: 4rem;
+min-width: 32%;
+}
+.weather__result{
+background-color: #f2f2f2;
+box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+border-radius: 0.9rem;
+padding: 1.4rem;
+}
