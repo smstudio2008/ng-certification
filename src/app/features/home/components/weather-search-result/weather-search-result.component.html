@@ -1,22 +1,39 @@
-<article>
-  <section class="d-flex flex-column">
-    <article class=" d-flex flex-row">
-      <div class="weather__img order-3 ml-5">
-        <img src="https://www.angulartraining.com/images/weather/sun.png">
-      </div>
+<article class="d-flex flex-wrap">
+  <ng-container *ngFor="let item of searchResult">
+    <section class="d-flex m-3 flex-column weather__result">
+      <span class="close align-self-end" (click)="removeWeather(item)">×</span>
+      <article class=" d-flex flex-row">
+        <div class="weather__img order-3 ml-5">
+          <ng-container [ngSwitch]="item.weather[0].main">
+            <img *ngSwitchCase="'Clear'" src="https://www.angulartraining.com/images/weather/sun.png">
+            <img *ngSwitchCase="'Clouds'" src="https://www.angulartraining.com/images/weather/clouds.png">
+            <img *ngSwitchCase="'Rain'" src="https://www.angulartraining.com/images/weather/rain.png">
+            <img *ngSwitchCase="'Snow'" src="https://www.angulartraining.com/images/weather/snow.png">
+          </ng-container>
 
-      <section class="d-flex flex-column p-3">
-        <div class="weather__detail">
-          <h2 class="text-info">Rancho Cordova</h2>
-          <h6 class="text-muted"><strong>Zip Code:</strong>(95742)</h6>
-          <h6 class="text-muted"><strong>Current conditions:</strong> Clouds</h6>
+
         </div>
-        <div class="weather__temp">
-          <h4 class="text-primary">Temperatures today</h4>
-          <p> <strong>Current</strong> 58 - <strong>Max</strong> 65 - <strong>Min</strong> 48</p>
-        </div>
-      </section>
-    </article>
-    <button type="button" [routerLink]="['forecast']" routerLinkActive="router-link-active"  class="btn btn-secondary font-weight-bold text-white">Show 5-day forecast for Rancho Cordova</button>
-  </section>
+
+        <section class="d-flex flex-column p-3">
+
+          <div class="weather__detail">
+            <h2 class="text-info">{{item.name}}</h2>
+            <h6 class="text-muted"><strong>Zip Code:</strong>({{item.zipcode}})</h6>
+            <h6 class="text-muted"><strong>Current conditions:</strong> {{item.weather[0].description | titlecase}}</h6>
+          </div>
+
+          <div class="weather__temp">
+            <h4 class="text-danger font-weight-bolder">Temperatures today</h4>
+            <p> <strong>Current</strong> {{item.main.temp}} - <strong>Max</strong> {{item.main.temp_max}} -
+              <strong>Min</strong> {{item.main.temp_min}}</p>
+          </div>
+
+        </section>
+      </article>
+      <div class="forecast__button">
+        <a class="btn btn-primary font-weight-bolder" [routerLink]="['forecast', item.zipcode]" role="button">Show 5-day
+          forecast for {{item.name}}</a>
+      </div>
+    </section>
+  </ng-container>
 </article>

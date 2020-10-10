@@ -1,9 +1,10 @@
 <article>
     <section>
-        <form>
+        <form [formGroup]="form" (ngSubmit)=" sendDetail()">
             <div class="form-group">
                 <label for="zipcode">Enter a Zipcode:</label>
-                <input type="number" class="form-control form-control-lg weather__form" id="zipcode" aria-describedby="zipCodeHelp">
+                <input autocomplete="address-line3" type="number" formControlName="zipcode" maxlength="5"
+                    class="form-control form-control-lg weather__form" id="zipcode" aria-describedby="zipCodeHelp">
                 <small id="zipCodeHelp" class="form-text text-muted">Only works with U.S Zipcode.</small>
             </div>
             <button type="submit" class="btn btn-primary btn-lg btn-block">Add Location</button>

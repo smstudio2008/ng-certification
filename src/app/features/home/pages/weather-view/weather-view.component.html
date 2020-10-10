@@ -1,8 +1,17 @@
 <article class="d-flex">
+
     <section class="weather__search">
-        <weather-search-form></weather-search-form>
+
+        <weather-search-form (newWeatherData)="getWeatherDatafromStore($event)">
+        </weather-search-form>
+
     </section>
-    <section class="weather__result p-2">
-        <weather-search-result></weather-search-result>
+
+    <section class=" p-2">
+
+        <weather-search-result [searchResult]="weatherData | async"
+            (removeWeatherData)="deleteWeatherDatafromStore($event)">
+        </weather-search-result>
+
     </section>
 </article>

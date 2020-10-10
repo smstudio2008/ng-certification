@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { IForecastModel } from './../../models/weather-model';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'forecast-table-list',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forecast-table-list.component.css']
 })
 export class ForecastTableListComponent implements OnInit {
-
+  @Input() public forecastResult: Observable<IForecastModel>;
   constructor() { }
 
   ngOnInit(): void {

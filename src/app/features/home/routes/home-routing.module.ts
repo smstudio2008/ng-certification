@@ -14,7 +14,7 @@ const routes: Routes = [
                 component: WeatherViewComponent,
             },
             {
-                path: "forecast",
+                path: "forecast/:zipCode",
                 component: ForecastViewComponent,
             },
         ],

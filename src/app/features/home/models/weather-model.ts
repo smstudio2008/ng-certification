@@ -12,6 +12,7 @@ export interface IWeatherModel {
     visibility: number;
     weather: Weather[];
     wind: Wind;
+    zipcode?:number;
 }
 
 export interface IForecastModel {

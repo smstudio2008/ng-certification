@@ -13,6 +13,7 @@ import { WeatherViewComponent } from "./pages/weather-view/weather-view.componen
 import { StoreModule } from "@ngrx/store";
 
 import { weatherReducer } from './store/reducer/weather.reducer';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,8 @@ import { weatherReducer } from './store/reducer/weather.reducer';
   imports: [
     CommonModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     HomeRoutingModule,
     StoreModule.forFeature("Weather_Channel", weatherReducer),
     EffectsModule.forFeature([WeatherEffects]),

@@ -1,85 +1,26 @@
-<!-- 
-<div class="container-fluid">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">5-day forecast for Rancho Cordova</h3>
-
-        </div>
-        <ul class="list-group">
-            <li class="list-group-item">
-                Monday, Mar 23:
-                Rain
-                - Min: 45
-                - Max: 59
-
-                <img class="icon" src="https://www.angulartraining.com/images/weather/rain.png">
-            </li>
-            <li class="list-group-item">
-                Tuesday, Mar 24:
-                Rain
-                - Min: 39
-                - Max: 52
-
-                <img class="icon" src="https://www.angulartraining.com/images/weather/sun.png">
-            </li>
-            <li class="list-group-item">
-                Wednesday, Mar 25:
-                Rain
-                - Min: 36
-                - Max: 54
-
-                <img class="icon" src="https://www.angulartraining.com/images/weather/rain.png">
-            </li>
-            <li class="list-group-item">
-                Thursday, Mar 26:
-                Clear
-                - Min: 37
-                - Max: 56
-
-                <img class="icon" src="https://www.angulartraining.com/images/weather/clouds.png">
-            </li>
-            <li class="list-group-item">
-                Friday, Mar 27:
-                Clear
-                - Min: 40
-                - Max: 57
-
-                <img class="icon" src="https://www.angulartraining.com/images/weather/snow.png">
-            </li>
-        </ul>
-    </div>
-    <button class="btn btn-success" tabindex="0" id="mainPageBtn">&lt; Back to main page</button>
-</div> -->
-
 <article class="d-flex flex-column justify-content-center">
-   
-    <header class=" d-flex flex-column text-center">
-         <button type="button" [routerLink]="['home']" routerLinkActive="router-link-active"  class="btn btn-primary font-weight-bold align-self-start text-capitalize ml-5">back to search</button>
-        <h2 class="font-weight-light py-2">Template for 5-day forecast page:</h2>
-        <h4 class="text-center py-2 text-primary">5-day forecast for Rancho Cordova</h4>
-    </header>
-    <section class="weather__table">
-        <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between weather__list">
-                <p class="pt-1 font-italic" ><strong>Monday, Mar 23:</strong>  Rain - Min: 45 - Max: 59:</p>
-                <img class="icon mt-2" src="https://www.angulartraining.com/images/weather/rain.png">
-            </li>
-            <li class="list-group-item d-flex justify-content-between weather__list">
-                <p class="pt-1 font-italic" ><strong>Monday, Mar 23:</strong>  Rain - Min: 45 - Max: 59:</p>
-                <img class="icon mt-2" src="https://www.angulartraining.com/images/weather/sun.png">
-            </li>
-            <li class="list-group-item d-flex justify-content-between weather__list">
-                <p class="pt-1 font-italic" ><strong>Monday, Mar 23:</strong>  Rain - Min: 45 - Max: 59:</p>
-                <img class="icon mt-2" src="https://www.angulartraining.com/images/weather/snow.png">
-            </li>
-            <li class="list-group-item d-flex justify-content-between weather__list">
-                <p class="pt-1 font-italic" ><strong>Monday, Mar 23:</strong>  Rain - Min: 45 - Max: 59:</p>
-                <img class="icon mt-2" src="https://www.angulartraining.com/images/weather/sun.png">
-            </li>
-            <li class="list-group-item d-flex justify-content-between weather__list">
-                <p class="pt-1 font-italic" ><strong>Monday, Mar 23:</strong>  Rain - Min: 45 - Max: 59:</p>
-                <img class="icon mt-2" src="https://www.angulartraining.com/images/weather/snow.png">
-            </li>
-        </ul>
-    </section>
+    <ng-container *ngFor="let itemForecast of forecastResult">
+        <header class=" d-flex flex-column text-center">
+            <button type="button" [routerLink]="['home']" routerLinkActive="router-link-active"
+                class="btn btn-primary font-weight-bold align-self-start text-capitalize ml-5">back to search</button>
+            <h2 class="font-weight-light py-2">Template for 5-day forecast page:</h2>
+            <h4 class="text-center py-2 text-primary">5-day forecast for {{itemForecast.city.name}}</h4>
+        </header>
+
+        <section class="weather__table">
+            <ul class="list-group">
+                <ng-container *ngFor="let item of itemForecast.list | keyvalue">
+                <li class="list-group-item d-flex justify-content-between weather__list">
+                    <p class="pt-1 font-italic"><strong>{{item.value.dt * 1000 | date: 'EEEE'}}</strong> {{item.value.weather[0].description | titlecase}} - Min: {{item.value.temp.min}} - Max: {{item.value.temp.max}}:</p>
+                    <ng-container [ngSwitch]="item.value.weather[0].main">
+                        <img class="icon mt-2" *ngSwitchCase="'Clear'" src="https://www.angulartraining.com/images/weather/sun.png">
+                        <img class="icon mt-2" *ngSwitchCase="'Clouds'" src="https://www.angulartraining.com/images/weather/clouds.png">
+                        <img class="icon mt-2" *ngSwitchCase="'Rain'" src="https://www.angulartraining.com/images/weather/rain.png">
+                        <img class="icon mt-2" *ngSwitchCase="'Snow'" src="https://www.angulartraining.com/images/weather/snow.png">
+                      </ng-container>
+                </li>
+            </ng-container>
+            </ul>
+        </section>
+    </ng-container>
 </article>
