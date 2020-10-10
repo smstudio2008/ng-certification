@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+
 import Swal from "sweetalert2";
 
 @Component({
@@ -8,10 +10,11 @@ import Swal from "sweetalert2";
   styleUrls: ["./weather-search-form.component.css"],
 })
 export class WeatherSearchFormComponent implements OnInit {
-  public form: FormGroup;
-  @Output() newWeatherData = new EventEmitter<number>();
+  @Output() public newWeatherData = new EventEmitter<number>();
 
-  constructor(private fb: FormBuilder) {}
+  public form: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
 
   public ngOnInit() {
     this.formValidation();

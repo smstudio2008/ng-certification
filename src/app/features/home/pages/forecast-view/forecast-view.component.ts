@@ -1,11 +1,14 @@
-import { IForecastModel } from './../../models/weather-model';
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+
+import { Observable } from "rxjs";
+
 import { select, Store } from "@ngrx/store";
-import { IAppWeatherState } from "../../store/interfaces/app.weather-state";
+
 import * as forecastActions from "../../store/actions/weather.actions";
-import { Observable } from 'rxjs';
-import { getForcast } from '../../store/selector/weather.selector';
+import { IAppWeatherState } from "../../store/interfaces/app.weather-state";
+import { IForecastModel } from "./../../models/weather-model";
+import { getForcast } from "../../store/selector/weather.selector";
 
 @Component({
   selector: "forecast-view",

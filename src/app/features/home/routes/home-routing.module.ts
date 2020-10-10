@@ -1,6 +1,8 @@
-import { HomeViewComponent } from "./../pages/home-view/home-view.component";
 import { NgModule } from "@angular/core";
+
 import { Routes, RouterModule } from "@angular/router";
+
+import { HomeViewComponent } from "./../pages/home-view/home-view.component";
 import { ForecastViewComponent } from "../pages/forecast-view/forecast-view.component";
 import { WeatherViewComponent } from "../pages/weather-view/weather-view.component";
 

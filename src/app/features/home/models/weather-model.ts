@@ -23,7 +23,6 @@ export interface IForecastModel {
     list: List[];
 }
 
-
 interface Coord {
     lat: number;
     lon: number;

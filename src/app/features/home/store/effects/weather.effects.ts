@@ -1,12 +1,14 @@
-import { IWeatherModel } from "./../../models/weather-model";
-import { IWeatherState } from "./../interfaces/weather-state";
-import { WeatherService } from "./../../services/weather.service";
-import { Actions, Effect, ofType } from "@ngrx/effects";
 import { Injectable } from "@angular/core";
+
 import { Observable, of } from "rxjs";
-import { Action } from "@ngrx/store";
 import { catchError, map, mergeMap } from "rxjs/operators";
 
+import { Action } from "@ngrx/store";
+import { Actions, Effect, ofType } from "@ngrx/effects";
+
+import { WeatherService } from "./../../services/weather.service";
+
+import { IWeatherModel } from "./../../models/weather-model";
 import * as weatherActions from "../actions/weather.actions";
 
 @Injectable()

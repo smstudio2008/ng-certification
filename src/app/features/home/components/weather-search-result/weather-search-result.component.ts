@@ -1,21 +1,19 @@
-import { IWeatherModel } from "./../../models/weather-model";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+
 import { Observable } from "rxjs";
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+
+import { IWeatherModel } from "./../../models/weather-model";
 
 @Component({
   selector: "weather-search-result",
   templateUrl: "./weather-search-result.component.html",
   styleUrls: ["./weather-search-result.component.css"],
 })
-export class WeatherSearchResultComponent implements OnInit {
+export class WeatherSearchResultComponent {
   @Input() public searchResult: Observable<IWeatherModel>;
   @Output() public removeWeatherData = new EventEmitter<IWeatherModel>();
-  
-  constructor() { }
-
-  ngOnInit(): void { }
 
   public removeWeather(weatherData: IWeatherModel) {
-    this.removeWeatherData.emit(weatherData)
+    this.removeWeatherData.emit(weatherData);
   }
 }
