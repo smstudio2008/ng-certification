@@ -7,3 +7,6 @@
     margin: auto;
     min-width: 30vw;
 }
+.icon img {
+    max-width: 11%;
+}

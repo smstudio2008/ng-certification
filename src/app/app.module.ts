@@ -36,7 +36,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
-    // !environment.production ? StoreDevtoolsModule.instrument() : [],
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   declarations: [AppComponent],
   providers: [{ provide: APP_BASE_HREF, useValue: "/" }],
