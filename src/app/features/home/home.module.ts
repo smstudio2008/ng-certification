@@ -30,7 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     HomeRoutingModule,
-    StoreModule.forFeature("Weather_Channel", weatherReducer),
+    StoreModule.forFeature("weather", weatherReducer),
     EffectsModule.forFeature([WeatherEffects]),
   ],
 })

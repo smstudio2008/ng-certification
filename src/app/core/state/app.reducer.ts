@@ -8,5 +8,5 @@ export const reducers: ActionReducerMap<State> = {
 };
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
-  return localStorageSync({ keys: ["Weather_Channel"], rehydrate: true,})(reducer);
+  return localStorageSync({ keys: ["weather"], rehydrate: true,})(reducer);
 }
